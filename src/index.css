@@ -1,0 +1,33 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+.items{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    list-style-type: none;
+    font-weight: bold;
+}
+.product_detail{
+    padding: 1rem;
+    border: 1px solid black;
+    width: 8rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.product{
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
