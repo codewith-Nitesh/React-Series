@@ -6,16 +6,13 @@
 // }
 
 // // const containerDiv = React.createElement('div',{id:'container'},
-// // [ 
+// // [
 // //     React.createElement('h1',{},'i am heading 1'),
 // //     React.createElement('h2',{},'i am heading 2')
 // // ]
-    
 // // );
-
 // // const root = ReactDOM.createRoot(document.getElementById('root'))
 // // root.render(containerDiv);
-
 // const container = React.createElement('div',{className:'Parent'},
 //     [React.createElement('div',{className:'child1'},'this is child1')],
 //     [React.createElement('div',{className:'child2'},'this is child2')]
@@ -33,24 +30,16 @@
 // {age}
 // )
 
-
-
-
-
-// // browser doesnot understand JSX and so for this situation Babel is used 
-// // Babel -> transpilation JSX -> convert it into React Element 
+// // browser doesnot understand JSX and so for this situation Babel is used
+// // Babel -> transpilation JSX -> convert it into React Element
 // // Babel -> a modern javascript compiler
 // // JSX is a different thing
 // // class based component -> old way of writing react code
 // // functional components -> new way to write code
 
-
-
 // const root = ReactDOM.createRoot(document.getElementById('root'))
 
 // root.render(jsxHeading)
-
-
 
 // //components
 // // components is nothing its just a normal javascript function
@@ -61,22 +50,114 @@
 //     return <h1 id="heading">{age}</h1>
 // }
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css'
+import React, {Suspense,lazy} from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 // default export
-import Navbar from './components/Navbar';
+import Navbar from "./components/Navbar";
 // named export
-import { ProductCard } from './components/ProductCard';
+import { ProductCard } from "./components/ProductCard";
+import Kid from "./components/Kid";
+import Men from "./components/Men";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Error from "./components/Error";
+import Women from "./components/Women";
+import ProductDetail from "./components/ProductDetail";
+// import About from "./components/About";
+
+// import Grocery from "./components/Grocery";  normal import na krke hm ese laze me dalenge
+// lazy is used for making multiple bundlers of application
+// variable and the name of component should be same
+// in lazy loading we use arrow function with direct return
+
+const Grocery = lazy(()=> import('./components/Grocery'))
+const About = lazy(()=> import('./components/About'))
 
 const App = () => {
-    return (
-        <div>
-            <Navbar/>
-            <ProductCard/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+    </div>
+  );
+};
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(<App/>)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+        <App />
+      </div>
+    ),
+    children: [
+      {
+        path: "/",
+        element: (
+          <div>
+            <ProductCard />
+          </div>
+        ),
+      },
+      {
+        path: "/kid",
+        element: (
+          <div>
+            <Kid />
+          </div>
+        ),
+      },
+      {
+        path: "/About",
+        element: (
+          <div>
+           <Suspense fallback={<h1>loading...</h1>}><About/></Suspense>
+          </div>
+        ),
+      },
+      {
+        path: "/men",
+        element: (
+          <div>
+            <Men />
+          </div>
+        ),
+      },
+      {
+        path: "/women",
+        element: (
+          <div>
+            <Women />
+          </div>
+        ),
+      },
+       {
+        path: "/grocery",
+        element: (
+          <div>
+            <Suspense fallback={<h1>loading...</h1>}><Grocery/></Suspense>
+          </div>
+        ),
+      },
+      {
+        path: "/product/:id",
+        element: (
+          <div>
+            <ProductDetail/>
+          </div>
+        ),
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: (
+      <div>
+        <Error />
+      </div>
+    ),
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={router} />);
