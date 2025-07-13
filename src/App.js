@@ -50,7 +50,7 @@
 //     return <h1 id="heading">{age}</h1>
 // }
 
-import React, {Suspense,lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 // default export
@@ -63,22 +63,27 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Error from "./components/Error";
 import Women from "./components/Women";
 import ProductDetail from "./components/ProductDetail";
-// import About from "./components/About";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+//import About from "./components/About";
 
 // import Grocery from "./components/Grocery";  normal import na krke hm ese laze me dalenge
 // lazy is used for making multiple bundlers of application
 // variable and the name of component should be same
 // in lazy loading we use arrow function with direct return
 
-const Grocery = lazy(()=> import('./components/Grocery'))
-const About = lazy(()=> import('./components/About'))
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Outlet />
-    </div>
+    <Provider store={store}>
+      <div>
+        <Navbar />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 
@@ -111,7 +116,9 @@ const router = createBrowserRouter([
         path: "/About",
         element: (
           <div>
-           <Suspense fallback={<h1>loading...</h1>}><About/></Suspense>
+            <Suspense fallback={<h1>loading...</h1>}>
+              <About />
+            </Suspense>
           </div>
         ),
       },
@@ -131,11 +138,13 @@ const router = createBrowserRouter([
           </div>
         ),
       },
-       {
+      {
         path: "/grocery",
         element: (
           <div>
-            <Suspense fallback={<h1>loading...</h1>}><Grocery/></Suspense>
+            <Suspense fallback={<h1>loading...</h1>}>
+              <Grocery />
+            </Suspense>
           </div>
         ),
       },
@@ -143,7 +152,15 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: (
           <div>
-            <ProductDetail/>
+            <ProductDetail />
+          </div>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <div>
+            <Cart />
           </div>
         ),
       },

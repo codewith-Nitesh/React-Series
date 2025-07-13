@@ -765,7 +765,7 @@ class ProfileClass extends (0, _reactDefault.default).Component {
         }, 1000);
     }
     componentDidUpdate(prevProps, prevState) {
-        if (this.state.count !== prevState.count || this.state.count2 !== prevState.count2) cconsole.log('called');
+        if (this.state.count !== prevState.count || this.state.count2 !== prevState.count2) console.log('called');
         console.log('component will update is called');
     }
     componentWillUnmount() {

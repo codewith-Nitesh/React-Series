@@ -2,9 +2,12 @@ import React from "react";
 import { useState } from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [btnname, setBtnName] = useState(true);
+  const cart = useSelector((state) => state.cart.cartItem)
+ // console.log('cartData',cart)
   return (
     <>
       <div
@@ -28,9 +31,6 @@ const Navbar = () => {
               <NavLink to="/kid">KIDS</NavLink>
             </li>
             <li>
-              <NavLink to="/cart">CART</NavLink>
-            </li>
-            <li>
               <NavLink to="/about">ABOUT</NavLink>
             </li>
             <li>
@@ -38,6 +38,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/grocery">GROCERY</NavLink>
+            </li>
+            <li>
+              <NavLink to="/cart">CART - {cart.length}</NavLink>
             </li>
           </ul>
         </div>

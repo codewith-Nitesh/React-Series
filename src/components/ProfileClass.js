@@ -38,7 +38,7 @@ class ProfileClass extends React.Component {
 
   componentDidUpdate(prevProps, prevState){
     if(this.state.count !== prevState.count || this.state.count2 !== prevState.count2){
-      cconsole.log('called')
+      console.log('called')
     }
     console.log('component will update is called')
   }
@@ -71,6 +71,14 @@ class ProfileClass extends React.Component {
         >
           increment
         </button> */}
+
+        {/* // way of consuming the data using useContexthook in class based component down code*/}
+
+        {/* <UserContext.Consumer>
+          {(data) => (
+            <h1>name:{data.name}</h1>
+          )}
+        </UserContext.Consumer> */}
         </div>
       </>
     );

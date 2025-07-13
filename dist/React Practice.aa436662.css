@@ -27,11 +27,12 @@
 
 .product_detail {
   text-align: center;
+  box-sizing: border-box;
   border: 1px solid #000;
   border-radius: .7rem;
   flex-direction: column;
   width: 20rem;
-  height: 800px;
+  height: 70rem;
   margin: 1rem;
   padding: 1rem;
   display: flex;
