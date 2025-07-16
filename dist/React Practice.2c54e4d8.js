@@ -26851,12 +26851,21 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _ref = require("./Ref");
+var _refDefault = parcelHelpers.interopDefault(_ref);
 const Kid = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "Kid"
-    }, void 0, false, {
+        children: [
+            "Kid",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _refDefault.default), {}, void 0, false, {
+                fileName: "src/components/Kid.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/components/Kid.js",
-        lineNumber: 5,
+        lineNumber: 6,
         columnNumber: 5
     }, undefined);
 };
@@ -26866,6 +26875,55 @@ var _c;
 $RefreshReg$(_c, "Kid");
 
   $parcel$ReactRefreshHelpers$3417.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./Ref":"eFTd6"}],"eFTd6":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$e946 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$e946.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e946.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const Ref = ()=>{
+    _s();
+    const reference = (0, _react.useRef)();
+    const handleFocus = ()=>{
+        reference.current.style.border = '5px solid blue';
+        reference.current.style.outline = 'none';
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+            type: "text",
+            placeholder: "Enter name here",
+            ref: reference,
+            onFocus: handleFocus
+        }, void 0, false, {
+            fileName: "src/components/Ref.js",
+            lineNumber: 13,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Ref.js",
+        lineNumber: 12,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Ref, "6Q+sQdFmUF4ra+mL3ZWZslXUdLk=");
+_c = Ref;
+exports.default = Ref;
+var _c;
+$RefreshReg$(_c, "Ref");
+
+  $parcel$ReactRefreshHelpers$e946.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
