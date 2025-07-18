@@ -66,6 +66,8 @@ import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import FormValidation from "./components/FormValidation";
+import ZodValidation from "./components/ZodValidation";
 //import About from "./components/About";
 
 // import Grocery from "./components/Grocery";  normal import na krke hm ese laze me dalenge
@@ -161,6 +163,22 @@ const router = createBrowserRouter([
         element: (
           <div>
             <Cart />
+          </div>
+        ),
+      },
+      {
+        path: "form",
+        element: (
+          <div>
+            <FormValidation />
+          </div>
+        ),
+      },
+       {
+        path: "zod",
+        element: (
+          <div>
+            <ZodValidation/>
           </div>
         ),
       },

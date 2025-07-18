@@ -42,6 +42,12 @@ const Navbar = () => {
             <li>
               <NavLink to="/cart">CART - {cart.length}</NavLink>
             </li>
+             <li>
+              <NavLink to="/form">FORM</NavLink>
+            </li>
+            <li>
+              <NavLink to="/zod">ZOD</NavLink>
+            </li>
           </ul>
         </div>
         <div>
